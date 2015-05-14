@@ -1,0 +1,61 @@
+package bangControllerKenan30AprilPRIM;
+
+public class BangControllerPRIM {
+	
+	// Manual calibrated measurement taken 30 April 2015 as the camera is mounted now
+	private final int MIN_X_COORDINATE = 218;
+	private final int MAX_X_COORDINATE = 500; 
+	private final int MIDDLE_POS       = (500-218)/2 + MIN_X_COORDINATE;
+	
+	
+	
+
+
+	public double calculateOutPut(double cartPos,double cartVel,double angle,double angleVel) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		
+		
+		/* If it goes outside the boundary, move in the opposite direction START */
+		if( (cartPos >= (MAX_X_COORDINATE-50))    ){	// It is on the right side of the boundary
+			
+			
+			
+			
+			return -1;
+		}
+		
+		if( cartPos <= (MIN_X_COORDINATE+50)   ){	// It is on the left side of the boundary
+			System.out.println("Left BOUNDARY REACHED");
+			return 1;
+		}
+		/* If it goes outside the boundary, move in the opposite direction END  */
+		
+		
+		
+		
+		System.out.println("PASSED SECURITY CODE");
+		/*For the starting up START */ 
+		if(cartVel == 0 ){				// cart still
+			if(cartPos >= MIDDLE_POS){
+				System.out.println("MOVING LEFT");
+				return -1;				// code for moving left
+			}else{
+				return 1;				// code for moving right
+			}
+		}
+		/* For starting up END */
+		
+		
+			
+		
+		
+		/* Give the same signal as previously because the angular velocity is not zero */
+		if(cartVel > 0){		// it is moving to the right
+			return 1;
+		}else{					// IT IS moving to the left
+			return -1;
+		}
+	}
+
+}

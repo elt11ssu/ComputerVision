@@ -1,0 +1,22 @@
+package bangControllerKenan30April;
+
+public class BangController {
+	
+	// Manuel calibrated messurement taken 30 April 2015 as the camera is mounted now
+	
+	private final int MIN_X_COORDINATE = 218;
+	private final int MAX_X_COORDINATE = 500; 
+
+	public double calculateOutPut(double cartPos,double angleVel) {
+		// TODO Auto-generated method stub
+		
+		/* Security check , START */
+		if(   (cartPos >= (MAX_X_COORDINATE-50)  ||  cartPos <= (MIN_X_COORDINATE+50)  )){
+			return 10; 
+		}
+		/* Security check , END */	
+		
+		return 0;
+	}
+
+}

@@ -1,0 +1,87 @@
+package bangControllerKenan30AprilPRIM;
+
+public class BangControllerPRIM {
+
+	// Manual calibrated measurement taken 30 April 2015 as the camera is mounted now
+	private final int MIN_X_COORDINATE = 218;
+	private final int MAX_X_COORDINATE = 480; 
+	private final int MIDDLE_POS       = (500-218)/2 + MIN_X_COORDINATE;
+	
+	// When to turn looking at the angleVel
+	private final int ANGLE_VEL_MIN = -10;
+	private final int ANGLE_VEL_MAX = 10;
+
+
+
+
+
+	public double calculateOutPut(double cartPos,double cartVel,double angle,double angleVel, boolean zeroing_flag)  {
+		// TODO Auto-generated method stub
+
+
+
+		/* If it goes outside the boundary, move in the opposite direction START */
+		if( (cartPos >= (MAX_X_COORDINATE-50))    ){	// It is on the right side of the boundary
+			if(!zeroing_flag && cartVel>0  ){			// Not allowed to turn around, resets
+				return 10;
+			}else{										// Allowed to turn around
+				return -1;
+			}
+		}
+			if( cartPos <= (MIN_X_COORDINATE+50)   ){	// It is on the left side of the boundary
+				if(!zeroing_flag && cartVel<0){						// Not allowed to turn around, resets
+					return 10;
+				}else{
+					return 1;							// Allowed to turn around
+
+				}
+
+			}
+			/* If it goes outside the boundary, move in the opposite direction END  */
+
+
+
+			/* For starting up START */
+			System.out.println("PASSED SECURITY CODE");
+			/*For the starting up START */ 
+			if(cartVel == 0 ){				// cart still
+				if(cartPos >= MIDDLE_POS){
+					System.out.println("MOVING LEFT");
+					return -1;				// code for moving left
+				}else{
+					return 1;				// code for moving right
+				}
+			}
+			/* For starting up END */
+
+			/* Should go in the opposite direction if angular velocity is between a bound START */
+			
+			if(   (angleVel > ANGLE_VEL_MIN)  &&  (angleVel < ANGLE_VEL_MAX )  ){		// Reached the top angle
+				if( (cartVel > 0) ){								// Moving in the EAST direction and is allowed to turn
+					if(zeroing_flag){
+						return -1;
+					}else{
+						return 10;
+					}
+				}
+				if(cartVel < 0){										// Moving in the WEST direction and is allowed to turn
+					if(zeroing_flag){
+						return 1;
+					}else{
+						return 10;
+					}
+				}
+			}
+
+			/* Should go in the opposite direction if angular velocity is between a bound END */
+
+
+			/* Give the same signal as previously because the angular velocity is not zero */
+			if(cartVel > 0){		// it is moving to the right
+				return 1;
+			}else{					// IT IS moving to the left
+				return -1;
+			}
+		}
+
+	}

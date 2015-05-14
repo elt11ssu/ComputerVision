@@ -1,0 +1,34 @@
+package bangControllerKenan30April;
+
+public class BangController {
+	
+	// Manual calibrated measurement taken 30 April 2015 as the camera is mounted now
+	private final int MIN_X_COORDINATE = 218;
+	private final int MAX_X_COORDINATE = 500; 
+	private final int MIDDLE_POS = (500-218)/2 + MIN_X_COORDINATE;
+	
+	// For calculations temp variables
+	private double temp_current_safety_dis_TO_THE_RIGHT;
+
+	public double calculateOutPut(double cartPos,double cartVel,double angle,double angleVel) {
+		// TODO Auto-generated method stub
+		
+		/* Security check , START */
+		if(   (cartPos >= (MAX_X_COORDINATE-50)  ||  cartPos <= (MIN_X_COORDINATE+50)  )){
+			return 10; 
+		}
+		/* Security check , END */	
+		
+		/*For the starting up START */ 
+		this.temp_current_safety_dis_TO_THE_RIGHT = MAX_X_COORDINATE-cartPos;
+		
+		
+		
+		/* For starting up END */
+		
+		
+		
+		return 0;
+	}
+
+}

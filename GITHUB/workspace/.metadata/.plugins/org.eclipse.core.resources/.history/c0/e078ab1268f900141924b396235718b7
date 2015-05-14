@@ -1,0 +1,29 @@
+package bangControllerKenan30AprilPRIM;
+
+public class StateFeedBackController {
+	
+	private double x1_feedBack;
+	private double x2_feedBack;
+	private double x3_feedBack;
+	private double x4_feedBack;
+	
+	private final double L_1 =-0.7332 ; 
+	private final double L_2 =-1.5275 ; 
+	private final double L_3 =-20.54 ; 
+	private final double L_4 =-3.4582 ; 
+	
+	
+	public double calculateOutPut(double pos, double vel, double angle, double angleVel){
+		pos-322;
+		
+		
+		
+		x1_feedBack = L_1*pos;
+		x2_feedBack = L_2*vel;
+		x3_feedBack = 
+		x4_feedBack = 
+		
+		return 0;
+	}
+
+}

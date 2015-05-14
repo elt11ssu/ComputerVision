@@ -1,0 +1,27 @@
+package optimizeParameters;
+
+
+public class OpComSignals {
+
+
+	private SignalAndPlotter nbrOfGreenCircles;
+	private SignalAndPlotter nbrOfRedCircles;
+
+
+
+	public OpComSignals(){
+
+		this.nbrOfGreenCircles = new SignalAndPlotter("nbeOfGreenCircles", 0, 0, 3, (long) 42 );
+		this.nbrOfRedCircles = new SignalAndPlotter("nbrOfRedCircles" , 0, 0, 3, (long) 42);
+	}
+
+
+	public SignalAndPlotter getnbrOfGreenCircles(){
+		return this.nbrOfGreenCircles;
+	}
+
+	public SignalAndPlotter getnbrOfRedCircles(){
+		return this.nbrOfRedCircles;
+	}
+}
+
