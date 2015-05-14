@@ -1,0 +1,23 @@
+package optimizeParameters;
+
+public class Main {
+	
+	private static int prioVisionProcessing=10;
+	public static void main(String[] args) {
+
+			InitParam initParam = new InitParam();
+			VisionProcessing visionProcessing = new VisionProcessing(prioVisionProcessing);
+			
+			// For the red
+			visionProcessing.setHminParam_G(initParam.getParam_H_min_G());
+			visionProcessing.setSminParam_G(initParam.getParam_S_min_G());
+			visionProcessing.setVminParam_G(initParam.getParam_V_min());
+			
+			visionProcessing.setHmaxParam(initParam.getParam_H_max());
+			visionProcessing.setSmaxParam(initParam.getParam_S_max());
+			visionProcessing.setVmaxParam(initParam.getParam_V_max());	
+			
+			visionProcessing.start();
+	}
+
+}

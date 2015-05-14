@@ -1,0 +1,31 @@
+package optimizeParameters;
+
+import bangControllerKenan30April.SignalAndPlotter;
+
+
+public class OpComSignals {
+
+
+	private SignalAndPlotter nbrOfGreenCircles;
+	private SignalAndPlotter nbrOfRedCircles;
+	private SignalAndPlotter visionProcessingTime;
+
+
+
+	public OpComSignals(){
+
+		this.nbrOfGreenCircles = new SignalAndPlotter("nbeOfGreenCircles", 0, 0, 3, (long) 42 );
+		this.nbrOfRedCircles = new SignalAndPlotter("nbrOfRedCircles" , 0, 0, 3, (long) 42);
+		this.visionProcessingTime = new SignalAndPlotter("VisionProcessingTime", 0, 0, 200, (long) 42 );
+	}
+
+
+	public SignalAndPlotter getnbrOfGreenCircles(){
+		return this.nbrOfGreenCircles;
+	}
+
+	public SignalAndPlotter getnbrOfRedCircles(){
+		return this.nbrOfRedCircles;
+	}
+}
+
