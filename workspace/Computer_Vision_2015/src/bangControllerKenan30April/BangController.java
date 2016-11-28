@@ -7,8 +7,8 @@ public class BangController {
 	private final int MAX_X_COORDINATE = 480; 
 	private final int MIDDLE_POS       = (500-218)/2 + MIN_X_COORDINATE;
 	
-
-
+	
+	
 	public double calculateOutPut(double cartPos,double cartVel,double angle,double angleVel, double oldControlSignal) {
 		// TODO Auto-generated method stub
 		
